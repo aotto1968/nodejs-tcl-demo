@@ -1,16 +1,16 @@
-# Hauptskript für TextMirror Inc. in Tcl/Tk
+# Main script for TextMirror Inc. in Tcl/Tk
 
 package require Tk
 
-# Standard-Tk-Fenster ausblenden
+# Hide standard Tk window
 wm withdraw .
 
-# Fenster erstellen
+# Create main window
 toplevel .main
 wm title .main "TextMirror Inc. - Text-Spiegelung"
 wm geometry .main 800x420
 
-# Logo und Überschrift (Header)
+# Logo and header
 frame .main.header -background #007bff
 grid .main.header -row 0 -column 0 -columnspan 2 -sticky new
 
@@ -22,30 +22,30 @@ if {[file exists logo.png]} {
 label .main.header.title -text "TextMirror Inc." -font {Arial 20 bold} -foreground white -background #007bff
 pack .main.header.title -side left -pady 10
 
-# Hauptbereich mit zwei Panels nebeneinander
+# Main area with two panels side by side
 frame .main.body
 grid .main.body -row 1 -column 0 -columnspan 2 -sticky nsew
 
-# Grid-Konfiguration für gleichmäßige Verteilung
+# Grid configuration for even distribution
 grid columnconfigure .main 0 -weight 1
 grid columnconfigure .main 1 -weight 1
 grid rowconfigure .main 1 -weight 1
 
-# Panel-Frames (links/rechts) erzeugen
+# Create panel frames (left/right)
 frame .main.body.left -relief ridge -bd 2
 frame .main.body.right -relief ridge -bd 2
 grid .main.body.left -in .main.body -row 0 -column 0 -padx {10 5} -pady 10 -sticky nsew
 grid .main.body.right -in .main.body -row 0 -column 1 -padx {5 10} -pady 10 -sticky nsew
 
-# Panels gleichmäßig wachsen lassen
+# Allow panels to grow evenly
 grid columnconfigure .main.body 0 -weight 1
 grid columnconfigure .main.body 1 -weight 1
 grid rowconfigure .main.body 0 -weight 1
 
-# Gemeinsame Optionen für beide Textfelder (ohne feste Breite/Höhe)
+# Common options for both text fields (no fixed width/height)
 set textopts "-font {Arial 12} -wrap word -background white -foreground #333 -borderwidth 2 -relief solid -padx 4 -pady 4"
 
-# Linkes Panel (Eingabe)
+# Left panel (input)
 label .main.body.left.label -text "Input" -font {Arial 14 bold} -foreground #007bff
 grid .main.body.left.label -in .main.body.left -row 0 -column 0 -sticky w -padx 10 -pady 5
 text .main.body.left.input {*}$textopts
@@ -53,7 +53,7 @@ grid .main.body.left.input -in .main.body.left -row 1 -column 0 -padx 10 -pady 1
 grid rowconfigure .main.body.left 1 -weight 1
 grid columnconfigure .main.body.left 0 -weight 1
 
-# Rechtes Panel (Ausgabe)
+# Right panel (output)
 label .main.body.right.label -text "Mirrored Text" -font {Arial 14 bold} -foreground #007bff
 grid .main.body.right.label -in .main.body.right -row 0 -column 0 -sticky w -padx 10 -pady 5
 text .main.body.right.output {*}$textopts -state disabled
@@ -61,7 +61,7 @@ grid .main.body.right.output -in .main.body.right -row 1 -column 0 -padx 10 -pad
 grid rowconfigure .main.body.right 1 -weight 1
 grid columnconfigure .main.body.right 0 -weight 1
 
-# Funktion zum Spiegeln des Textes
+# Function to mirror the text
 proc spiegel_text {} {
     set input [.main.body.left.input get 1.0 end-1c]
     set gespiegelt [string reverse $input]
@@ -73,8 +73,8 @@ proc spiegel_text {} {
     .main.body.right.output configure -state disabled
 }
 
-# Event-Bindung: Bei jeder Änderung spiegeln
+# Event binding: mirror on every change
 bind .main.body.left.input <KeyRelease> {spiegel_text}
 
-# Fokus auf Eingabefeld setzen
+# Set focus to input field
 after 100 {focus .main.body.left.input} 

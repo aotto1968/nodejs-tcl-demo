@@ -85,6 +85,6 @@ This repository was created as part of a live coding session with an AI assistan
 
 ---
 
-**Author:** [Your Name or Company]
+**Author:** Andreas Otto
 
-**Contact:** [Your Contact Info] 
+**Contact:** https://github.com/aotto1968

@@ -12,12 +12,18 @@
     <h1>TextMirror Inc.</h1>
   </header>
   <div class="container">
-    <div class="panel left">
-      <h2>Input</h2>
-      <textarea id="inputText" placeholder="Type here..." rows="10"></textarea>
+    <div class="left-column">
+      <div class="input-panel top">
+        <h2 class="blue">Input (Blue)</h2>
+        <textarea id="inputTop" placeholder="Type here..." rows="6"></textarea>
+      </div>
+      <div class="input-panel bottom">
+        <h2 class="green">Input (Green)</h2>
+        <textarea id="inputBottom" placeholder="Type here..." rows="6"></textarea>
+      </div>
     </div>
-    <div class="panel right">
-      <h2>Mirrored Text</h2>
+    <div class="right-column">
+      <h2 class="blue">Mirrored Text</h2>
       <div id="outputText"></div>
     </div>
   </div>

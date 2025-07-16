@@ -1,7 +1,7 @@
 {
-  "name": "hello-world",
+  "name": "nodejs-tcl-demo",
   "version": "1.0.0",
-  "description": "Node.js Projekt mit Express und Text-Spiegelung (links/rechts)",
+  "description": "Node.js project with Express and text mirroring (left/right)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

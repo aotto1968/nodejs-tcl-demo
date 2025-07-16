@@ -1,6 +1,6 @@
 # Node.js Demo – TextMirror Inc.
 
-This is the Node.js (Express) version of the TextMirror Inc. demo. It provides a simple web application with two panels: the left panel is for text input, and the right panel displays the mirrored (reversed) text. The app also features a company logo in the header.
+This is the Node.js (Express) version of the TextMirror Inc. demo. It provides a modern web application with two input panels on the left (top: blue, bottom: green) and a large output panel on the right. The app mirrors the text from both input fields to the right, displaying the top input in blue and the bottom input in green, both right-aligned. The app also features a company logo in the header.
 
 ## How to Run
 
@@ -16,7 +16,7 @@ This is the Node.js (Express) version of the TextMirror Inc. demo. It provides a
 4. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
 ## Features
-- Live text mirroring: as you type in the left field, the reversed text appears on the right.
+- Live text mirroring: as you type in the left fields, the reversed text appears on the right in color.
 - Modern, responsive layout with company branding.
 - Simple, clean codebase for easy understanding and migration.
 

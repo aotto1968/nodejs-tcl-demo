@@ -3,15 +3,15 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Statische Dateien aus dem 'public'-Ordner bereitstellen
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route für die Hauptseite
+// Route for the main page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Server starten
+// Start the server
 app.listen(port, () => {
-  console.log(`Server läuft auf http://localhost:${port}`);
+  console.log(`Server running at http://localhost:${port}`);
 });
